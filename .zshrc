@@ -7,6 +7,10 @@
 # keep this file simple!
 
 ## Useful variables
+OS=`uname`
+BIN_FOLDER=$HOME/.local/bin
+export PATH="$BIN_FOLDER:$PATH"
+
 # History
 HISTSIZE=10000
 SAVEHIST=10000
@@ -37,9 +41,6 @@ test alias f5 > /dev/null 2>&1 || alias f5='source $HOME/.zshrc'
 ##
 # OTHER USEFUL STUFF... OR NOT...
 ##
-#
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # load starship
 eval "$(starship init zsh)"
