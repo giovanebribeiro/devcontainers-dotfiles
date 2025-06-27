@@ -18,7 +18,7 @@ if command -v zsh >/dev/null 2>&1; then
     ln -s "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
 else
     # Create symlink for bash, otherwise
-    ln -s "$SCRIPT_DIR/.bashrc" "$HOME/.zshrc"
+    ln -s "$SCRIPT_DIR/.bashrc" "$HOME/.bashrc"
 fi
 ln -s "$SCRIPT_DIR/.aliases" "$HOME/.aliases"
 
