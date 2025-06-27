@@ -12,7 +12,7 @@ Assuming that you are using VSCode, just add these lines on your settings.json:
 
 ```json
 {
-  "dotfiles.repository": "frozenbonito/devcontainers-dotfiles",
+  "dotfiles.repository": "giovanebribeiro/devcontainers-dotfiles",
   "dotfiles.targetPath": "~/dotfiles",
   "dotfiles.installCommand": "~/dotfiles/install.sh"
 }
