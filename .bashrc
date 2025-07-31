@@ -92,6 +92,10 @@ if [ -f $HOME/.my_shell_stuff ]; then
    . $HOME/.my_shell_stuff
 fi
 
+if [ -f $HOME/.my_shell_complements ]; then
+   . $HOME/.my_shell_complements
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

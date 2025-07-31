@@ -35,6 +35,10 @@ precmd_functions+=(_fix_cursor)
 if [ -f $HOME/.my_shell_stuff ]; then
    . $HOME/.my_shell_stuff
 fi
+
+if [ -f $HOME/.my_shell_complements ]; then
+   . $HOME/.my_shell_complements
+fi
 # add general aliases
 source "$HOME/.aliases"
 test alias f5 > /dev/null 2>&1 || alias f5='source $HOME/.zshrc'
