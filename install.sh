@@ -19,7 +19,7 @@ esac
 # Remove existing files if they exist
 rm -f "$HOME/.zshrc"
 rm -f "$HOME/.bashrc"
-rm -f "$HOME/.aliases"
+rm -f "$HOME/.sh_common"
 rm -f "$HOME/.config/starship.toml"
 
 # Create symlinks for the dotfiles
@@ -30,7 +30,7 @@ else
     # Create symlink for bash, otherwise
     ln -s "$SCRIPT_DIR/.bashrc" "$HOME/.bashrc"
 fi
-ln -s "$SCRIPT_DIR/.aliases" "$HOME/.aliases"
+ln -s "$SCRIPT_DIR/.sh_common" "$HOME/.sh_common"
 
 # Create a symlink for the starship configuration
 ln -s "$SCRIPT_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
