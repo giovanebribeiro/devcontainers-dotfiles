@@ -9,10 +9,14 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+BASEDIR=$PWD
 
 #
 # check for updates
 #
+DOTSHELLRC_FILE=".dotshellrc"
+[ -f "$DOTSHELLRC_FILE"  ] && DOTSHELL_LOC=$(cat "$DOTSHELL_LOC") || DOTSHELL_LOC="$HOME/.dotshell"
+cd $DOTSHELL_LOC
 
 # Store the current commit hash of the local branch
 current_commit=$(git rev-parse HEAD)
@@ -27,6 +31,7 @@ if [ "$current_commit" != "$remote_commit"  ]; then
     # reloading
     source $HOME/.bashrc
 fi
+cd $BASEDIR
 
 ## Useful variables
 OS=`uname`

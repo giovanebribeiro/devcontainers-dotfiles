@@ -6,6 +6,14 @@
 # speficic aliases/exports/functions/whatever there. Let's 
 # keep this file simple!
 #
+BASEDIR=$PWD
+
+#
+# check for updates
+#
+DOTSHELLRC_FILE=".dotshellrc"
+[ -f "$DOTSHELLRC_FILE"  ] && DOTSHELL_LOC=$(cat "$DOTSHELL_LOC") || DOTSHELL_LOC="$HOME/.dotshell"
+cd $DOTSHELL_LOC
 
 # Store the current commit hash of the local branch
 current_commit=$(git rev-parse HEAD)
@@ -18,8 +26,9 @@ if [ "$current_commit" != "$remote_commit"  ]; then
     echo "Updating script..."
     git pull
     # reloading
-    source $HOME/.zshrc
+    source $HOME/.bashrc
 fi
+cd $BASEDIR
 
 ## Useful variables
 OS=`uname`
