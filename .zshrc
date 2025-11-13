@@ -5,6 +5,21 @@
 # Please create a file called ~/.my_shell_complements and put your 
 # speficic aliases/exports/functions/whatever there. Let's 
 # keep this file simple!
+#
+
+# Store the current commit hash of the local branch
+current_commit=$(git rev-parse HEAD)
+# Fetch remote changes without merging
+git fetch
+# Store the commit hash of the remote-tracking branch
+remote_commit=$(git rev-parse @{u})
+# Compare the local and remote-tracking branch commit hashes
+if [ "$current_commit" != "$remote_commit"  ]; then
+    echo "Updating script..."
+    git pull
+    # reloading
+    source $HOME/.zshrc
+fi
 
 ## Useful variables
 OS=`uname`
@@ -30,16 +45,22 @@ _fix_cursor() {
 }
 precmd_functions+=(_fix_cursor)
 
-source $HOME/.my_shell_stuff
-
 # Complements
 # You may want to put all your additions into a separate file like
-# ~/.my_shell_complements, instead of adding them here directly.
+# ~/.my_bash_complements, instead of adding them here directly.
 if [ -f $HOME/.my_shell_complements ]; then
    . $HOME/.my_shell_complements
 fi
+ 
+# Only add if exists. File for complex dependencies and configurations
+if [ -f $HOME/.my_shell_stuff ]; then
+   . $HOME/.my_shell_stuff
+fi
 
-# add general aliases
+# common stuff and OS-agostic and independent of complex dependencies
+source $HOME/.sh_common
+
+# reload
 test alias f5 > /dev/null 2>&1 || alias f5='source $HOME/.zshrc'
 
 #

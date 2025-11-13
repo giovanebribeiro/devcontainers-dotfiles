@@ -10,6 +10,24 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+#
+# check for updates
+#
+
+# Store the current commit hash of the local branch
+current_commit=$(git rev-parse HEAD)
+# Fetch remote changes without merging
+git fetch
+# Store the commit hash of the remote-tracking branch
+remote_commit=$(git rev-parse @{u})
+# Compare the local and remote-tracking branch commit hashes
+if [ "$current_commit" != "$remote_commit"  ]; then
+    echo "Updating script..."
+    git pull
+    # reloading
+    source $HOME/.bashrc
+fi
+
 ## Useful variables
 OS=`uname`
 BIN_FOLDER=$HOME/.local/bin
@@ -85,14 +103,20 @@ xterm*|rxvt*)
    ;;
 esac
 
+# common stuff and OS-agostic and independent of complex dependencies
+source $HOME/.sh_common
+
 # Complements
 # You may want to put all your additions into a separate file like
 # ~/.my_bash_complements, instead of adding them here directly.
 if [ -f $HOME/.my_shell_complements ]; then
    . $HOME/.my_shell_complements
 fi
-   
-source $HOME/.my_shell_stuff
+ 
+# Only add if exists. File for complex dependencies and configurations
+if [ -f $HOME/.my_shell_stuff ]; then
+   . $HOME/.my_shell_stuff
+fi  
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -106,10 +130,6 @@ if ! shopt -oq posix; then
 fi
 
 test alias f5 > /dev/null 2>&1 || alias f5='source $HOME/.bashrc'
-source "$HOME/.aliases"
-
-# TODO transfer this to my personal .my_shell_stuff file
-#[ -f /workspace/.devcontainer/.env ] && (set -a && source /workspace/.devcontainer/.env && set +a)
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
