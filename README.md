@@ -1,6 +1,6 @@
-# devcontainers-dotfiles
+# dotshell
 
-The dotfiles for my [devcontainers](https://containers.dev). The inspiration came from this [amazing](https://github.com/matheusfvesco/devcontainers-dotfiles) project.
+The dotfiles for my shell configurations files (bashrc, zshrc, etc), which I use for my [devcontainers](https://containers.dev). The inspiration came from this [amazing](https://github.com/matheusfvesco/devcontainers-dotfiles) project.
 
 ## Pre-requisites
 
