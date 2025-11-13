@@ -36,7 +36,7 @@ ln -s "$SCRIPT_DIR/.sh_common" "$HOME/.sh_common"
 ln -s "$SCRIPT_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 
 # Store this directory inside the rc file
-echo "$SCRIPT_DIR" >> $HOME/.dotshellrc
+echo "$SCRIPT_DIR" > $HOME/.dotshellrc
 
 # Install starship
 curl -sS https://starship.rs/install.sh | sh -s -- -y
