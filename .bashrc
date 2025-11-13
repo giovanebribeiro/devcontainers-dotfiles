@@ -88,13 +88,11 @@ esac
 # Complements
 # You may want to put all your additions into a separate file like
 # ~/.my_bash_complements, instead of adding them here directly.
-if [ -f $HOME/.my_shell_stuff ]; then
-   . $HOME/.my_shell_stuff
-fi
-
 if [ -f $HOME/.my_shell_complements ]; then
    . $HOME/.my_shell_complements
 fi
+   
+source $HOME/.my_shell_stuff
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
