@@ -3,8 +3,18 @@
 # Creates root directories if they don't exist
 mkdir -p "$HOME/.config" >/dev/null 2>&1
 
+OS=`uname`
+
+case $OS in
+    "Darwin")
+        SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+        ;;
+    "Linux")
+        SCRIPT_DIR=$(dirname "$(realpath "$0")")
+        ;;
+esac
+
 # Get the directory of the script
-SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
 # Remove existing files if they exist
 rm -f "$HOME/.zshrc"
