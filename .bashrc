@@ -14,8 +14,8 @@ BASEDIR=$PWD
 #
 # check for updates
 #
-DOTSHELLRC_FILE=".dotshellrc"
-[ -f "$DOTSHELLRC_FILE"  ] && DOTSHELL_LOC=$(cat "$DOTSHELL_LOC") || DOTSHELL_LOC="$HOME/.dotshell"
+DOTSHELLRC_FILE="$HOME/.dotshellrc"
+[ -f "$DOTSHELLRC_FILE"  ] && DOTSHELL_LOC=$(cat "$DOTSHELLRC_FILE") || DOTSHELL_LOC="$HOME/.dotshell"
 cd $DOTSHELL_LOC
 
 # Store the current commit hash of the local branch
