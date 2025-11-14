@@ -26,7 +26,7 @@ if [ "$current_commit" != "$remote_commit"  ]; then
     echo "Updating script..."
     git pull
     # reloading
-    source $HOME/.bashrc
+    source $HOME/.zshrc
 fi
 cd $BASEDIR
 
@@ -40,19 +40,14 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh_history
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
+#_comp_options+=(globdots)		# Include hidden files.
 
 # For some themes which cursor is underline, when exit vim the cursor becomes a box. This function
 # fix this error
-_fix_cursor() {
-  echo -ne '\e[3 q'
-}
-precmd_functions+=(_fix_cursor)
+#_fix_cursor() {
+#  echo -ne '\e[3 q'
+#}
+#precmd_functions+=(_fix_cursor)
 
 # Complements
 # You may want to put all your additions into a separate file like
