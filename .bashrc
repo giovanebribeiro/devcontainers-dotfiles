@@ -31,7 +31,7 @@ if [ "$current_commit" != "$remote_commit"  ]; then
     # reloading
     source $HOME/.bashrc
 fi
-cd $BASEDIR
+cd $HOME
 
 ## Useful variables
 OS=`uname`
