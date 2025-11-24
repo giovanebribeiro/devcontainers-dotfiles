@@ -139,5 +139,13 @@ test alias f5 > /dev/null 2>&1 || alias f5='source $HOME/.bashrc'
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+flag_file="/tmp/flag_file"
+if [ ! -f $flag_file ]
+then
+    command -v fetch >/dev/null 2>&1 && { fetch; touch $flag_file ; }
+    # only works if informant is installed (installed via AUR)
+    command -v informant > /dev/null 2>&1 && { info list --unread; echo; }
+fi
+
 # Starts starship
 eval "$(starship init bash)"
